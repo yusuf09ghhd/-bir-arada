@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Arayanlar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+        }
+        .header {
+            background: #4caf50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header img {
+            height: 50px;
+        }
+        .header nav a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .header nav a:hover {
+            text-decoration: underline;
+        }
+        .filter-container, .job-seekers {
+            margin: 50px;
+        }
+        .filter-container select, .filter-container input[type="text"], .filter-container button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .filter-container button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .filter-container button:hover {
+            background: #45a049;
+        }
+        .job-seeker {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .job-seeker h3 {
+            margin: 0;
+        }
+        .job-seeker p {
+            margin: 5px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <p>&2024 İşArıyorum.com. Tüm hakları saklıdır.</p>
+    </footer>
+    <header class="header">
+        <img src="işbul.png" alt="">
+        <nav>
+            <a href="ana.html">Ana Sayfa</a>
+            
+        </nav>
+    </header>
+    
+            </form>
+        </div>
+    </div>
+ 
+
+    <div class="filter-container">
+        <h2>Filtrele</h2>
+        <select id="position-filter">
+            <option value="">Pozisyon Seçin</option>
+            <option value="Yazılım Geliştirici">Yazılım Geliştirici</option>
+            <option value="Grafik Tasarımcı">Grafik Tasarımcı</option>
+            <option value="Veri Analisti">Veri Analisti</option>
+        </select>
+        <input type="text" id="experience-filter" placeholder="Tecrübe (Yıl)">
+        <input type="text" id="city-filter" placeholder="Şehir">
+        <button onclick="applyFilters()">Filtrele</button>
+    </div>
+   
+    <div class="job-seekers">
+        <h2>İş Arayanlar</h2>
+        <div id="job-seekers-list"></div>
+    </div>
+    
+    <script>
+        // İş ilanı verme işlevi
+function submitJob() {
+    const title = document.getElementById('job-title').value;
+    const description = document.getElementById('job-description').value;
+    const location = document.getElementById('job-location').value;
+
+    // Yeni iş ilanını oluştur
+    const newJob = `
+        <div class="job-seeker">
+            <h3>${title}</h3>
+            <p>Pozisyon: İş Veren Şirketi</p>
+            <p>Tecrübe: ${location}</p>
+            <p>Şehir: ${description}</p>
+        </div>
+    `;
+
+    // İş ilanını iş arayanlar bölümüne ekle
+    document.getElementById('job-seekers-list').insertAdjacentHTML('beforeend', newJob);
+
+    // Formu sıfırla
+    document.getElementById('add-job-form').reset();
+
+    // İlan verme formunu kapat
+    closeJobForm();
+}
+        const jobSeekers = [
+            { name: 'Ahmet Yılmaz', position: 'Yazılım Geliştirici', experience: '5 Yıl', city: 'İstanbul' },
+            { name: 'Aylin Demir', position: 'Grafik Tasarımcı', experience: '3 Yıl', city: 'Ankara' },
+            { name: 'Mehmet Kaya', position: 'Veri Analisti', experience: '4 Yıl', city: 'İzmir' },
+            { name: 'Yusuf Yıldız', position: 'Yazılım Geliştirici', experience: '5 Yıl', city: 'İstanbul' },
+            { name: 'Murat Tanrıverdi', position: 'Grafik Tasarımcı', experience: '3 Yıl', city: 'Ankara' },
+            { name: 'Fatih Yaşar', position: 'Veri Analisti', experience: '4 Yıl', city: 'İzmir' },
+            { name: 'Ahmet Yılmaz', position: 'Yazılım Geliştirici', experience: '5 Yıl', city: 'İstanbul' },
+            { name: 'Aylin Demir', position: 'Grafik Tasarımcı', experience: '3 Yıl', city: 'Ankara' },
+            { name: 'Mehmet Kaya', position: 'Veri Analisti', experience: '4 Yıl', city: 'İzmir' },
+            { name: 'Ahmet Yılmaz', position: 'Yazılım Geliştirici', experience: '5 Yıl', city: 'İstanbul' },
+            { name: 'Aylin Demir', position: 'Grafik Tasarımcı', experience: '3 Yıl', city: 'Ankara' },
+            { name: 'Mehmet Kaya', position: 'Veri Analisti', experience: '4 Yıl', city: 'İzmir' },
+        ];
+
+        function displayJobSeekers(seekers) {
+            const jobSeekersList = document.getElementById('job-seekers-list');
+            jobSeekersList.innerHTML = '';
+
+            seekers.forEach(seeker => {
+                const seekerDiv = document.createElement('div');
+                seekerDiv.classList.add('job-seeker');
+                seekerDiv.innerHTML = `
+                    <h3>${seeker.name}</h3>
+                    <p>Pozisyon: ${seeker.position}</p>
+                    <p>Tecrübe: ${seeker.experience}</p>
+                    <p>Şehir: ${seeker.city}</p>
+                `;
+                jobSeekersList.appendChild(seekerDiv);
+            });
+        }
+
+        function applyFilters() {
+            const positionFilter = document.getElementById('position-filter').value;
+            const experienceFilter = document.getElementById('experience-filter').value;
+            const cityFilter = document.getElementById('city-filter').value;
+
+            const filteredSeekers = jobSeekers.filter(seeker => {
+                return (!positionFilter || seeker.position.includes(positionFilter)) &&
+                       (!experienceFilter || seeker.experience.includes(experienceFilter)) &&
+                       (!cityFilter || seeker.city.includes(cityFilter));
+            });
+
+            displayJobSeekers(filteredSeekers);
+        }
+
+        displayJobSeekers(jobSeekers);
+        
+    </script>
+</body>
+</html>
