@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iğdır Belediyesi Bilgi İşlem Merkezi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            width: 300px;
+        }
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .login-container label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #555;
+        }
+        .login-container .register-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+        .login-container .register-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .login-container .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        
+<div class="container">
+    <div class="login-form active" id="login-form">
+       <form method="post" action="işveren.html">
+
+		<?php include('errors.php'); ?>
+         <h1> Kullanıcı Girişi</h1>
+		<div class="input-group">
+			<label>Kullanıcı Adı</label>
+			<input type="text" name="username" >
+		</div>
+		<div class="input-group">
+			<label>Şifre</label>
+			<input type="password" name="password">
+		</div>
+		<div class="input-group">
+			<button type="submit" class="btn" name="login_user">Giriş Yap</button>
+		
+		</div>
+		<p>
+			Hesabınız Yok Mu? <a href="kayıtol.html">Üye Ol</a>
+		</p>
+	</form>
+
+    
+	
+	<script>
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Basit kontrol (gerçek bir uygulamada, bu kontrol server tarafında yapılır)
+        if (Kullanıcı Adı === 'admin' && password === 'password') {
+            document.getElementById('login-form').classList.remove('active');
+            document.getElementById('admin-name').innerText = username;
+            document.getElementById('admin-panel').classList.add('active');
+        } else {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    }
+
+    function logout() {
+        document.getElementById('admin-panel').classList.remove('active');
+        document.getElementById('login-form').classList.add('active');
+        document.getElementById('error-message').style.display = 'none';
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+    }
+
+    function editUser(username) {
+        alert(username + ' düzenleniyor.');
+    }
+
+    function deleteUser(username) {
+        alert(username + ' siliniyor.');
+    }
+</script>
+</div>
+</body>
+</html>
