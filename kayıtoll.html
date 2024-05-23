@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İŞBUL.COM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            width: 300px;
+        }
+        .register-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .register-container label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .register-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #555;
+        }
+        .register-container .login-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+        .register-container .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .register-container .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Kayıt Ol</h2>
+        <form action="işarayan.html" method="post">
+            <label for="first_name">Ad</label>
+            <input type="text" id="first_name" name="first_name" required>
+            
+            <label for="last_name">Soyad</label>
+            <input type="text" id="last_name" name="last_name" required>
+            
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="departman">departman</label>
+            <input type="text" id="departman" name="deparrtman" required>
+            
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Kayıt Ol</a></button>
+        </form>
+        <div class="login-link">
+            <p>Zaten hesabınız var mı? <a href="giriş.html">Giriş Yap</a></p>
+        </div>
+    </div>
+</body>
+</html>
