@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Veren Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .job-post-section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .job-post-section h2 {
+            margin-top: 0;
+        }
+
+        #job-post-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #job-post-form input[type="text"],
+        #job-post-form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        #job-post-form button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #job-post-form button:hover {
+            background-color: #45a049;
+        }
+
+        .job-listings {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .job-listings h2 {
+            margin-top: 0;
+        }
+
+        #posted-jobs {
+            list-style: none;
+            padding: 0;
+        }
+
+        #posted-jobs li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #posted-jobs li:last-child {
+            border-bottom: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>İş Veren Platformu</h1>
+        <h6> <a href="ana.html" >Çıkış Yap</a></h6>
+    </header>
+    <main>
+        <section class="job-post-section">
+            <h2>İş İlanı Ekle</h2>
+            <form id="job-post-form">
+                <input type="text" id="job-title" name="job-title" placeholder="İş unvanı" required>
+                <input type="text" id="company-name" name="company-name" placeholder="Şirket adı" required>
+                <input type="text" id="location" name="location" placeholder="Şehir veya bölge" required>
+                <textarea id="job-description" name="job-description" rows="4" placeholder="İş tanımı" required></textarea>
+                <button type="submit">Ekle</button>
+            </form>
+        </section>
+        <section class="job-listings">
+            <h2>Eklenen İş İlanları</h2>
+            <ul id="posted-jobs">
+                <!-- Eklenen iş ilanları burada listelenecek -->
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&2024 İşArıyorum.com. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        document.getElementById('job-post-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const jobTitle = document.getElementById('job-title').value;
+            const companyName = document.getElementById('company-name').value;
+            const location = document.getElementById('location').value;
+            const jobDescription = document.getElementById('job-description').value;
+
+            const jobItem = document.createElement('li');
+            jobItem.textContent = `${jobTitle} - ${companyName} (${location}) : ${jobDescription}`;
+            document.getElementById('posted-jobs').appendChild(jobItem);
+
+            // Formu temizle
+            document.getElementById('job-post-form').reset();
+        });
+    </script>
+</body>
+</html>
